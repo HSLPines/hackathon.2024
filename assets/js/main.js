@@ -1,63 +1,25 @@
 
-// Falso login
-const loginForm = document.getElementById('login');
-const welcomeMessage = document.getElementById('welcome-message');
-const loginContainer = document.getElementById('login-form');
+let menuIcon = document.querySelector('#btn-menu');
+let navbar = document.querySelector('.navbar');
+let sections = document.querySelectorAll('section');
+let navLinks = document.querySelectorAll('header nav a');
 
-loginForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+window.onscroll = () => {
+    sections.forEach(sec => {  
+        let top = window.scrollY;
+        let offset = sec.offsetTop - 150;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute('id');
 
-    // Simulação de autenticação
-    if (username === 'admin' && password === '1234') {
-        loginContainer.style.display = 'none';
-        welcomeMessage.style.display = 'block';
-    } else {
-        alert('Usuário ou senha incorretos!');
-    }
-});
-
-// Troca de abas
-const tabLinks = document.querySelectorAll('.tab-link');
-const contents = document.querySelectorAll('.content');
-
-tabLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const tab = link.getAttribute('data-tab');
-
-        contents.forEach(content => {
-            content.classList.remove('active');
-        });
-
-        document.getElementById(tab).classList.add('active');
-
-        // Carregar mapa na aba de Pontos de Descanso
-        if (tab === 'rest-points') {
-            initMap();
+        if (top >= offset && top < offset + height){
+            navLinks.forEach(links => {
+                links.classList.remove('active');
+                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+            });
         }
     });
-});
+};
 
-// Função para inicializar o mapa
-function initMap() {
-
-    if (typeof google === 'undefined' || typeof google.maps === 'undefined') {
-        console.error('Google Maps API is not loaded.');
-        return;
-    }
-
-    let map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: -23.55052, lng: -46.633308 }, // Localização de São Paulo como exemplo
-        zoom: 12
-    });
-
-    // Marcador de exemplo
-    new google.maps.Marker({
-        position: { lat: -23.55052, lng: -46.633308 },
-        map: map,
-        title: 'Ponto de Descanso Exemplo'
-    });
-
-}
+menuIcon.onclick = () => {
+    document.getElementById('nav-menu').classList.toggle('active')
+};
