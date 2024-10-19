@@ -42,7 +42,13 @@ tabLinks.forEach(link => {
 
 // Função para inicializar o mapa
 function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
+
+    if (typeof google === 'undefined' || typeof google.maps === 'undefined') {
+        console.error('Google Maps API is not loaded.');
+        return;
+    }
+
+    let map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -23.55052, lng: -46.633308 }, // Localização de São Paulo como exemplo
         zoom: 12
     });
@@ -53,4 +59,5 @@ function initMap() {
         map: map,
         title: 'Ponto de Descanso Exemplo'
     });
+
 }
