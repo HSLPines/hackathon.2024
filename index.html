@@ -1,16 +1,72 @@
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Hackathon</title>
+    <title>BORA AMBULANTES</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 <body>
-     
+
+    <!-- Sistema de Login Falso -->
+    <div id="login-form">
+        <h2>Login</h2>
+        <form id="login">
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <input type="submit" value="Entrar">
+        </form>
+    </div>
+
+    <!-- Conteúdo do site (aparece após login) -->
+    <div id="welcome-message">
+        <h2>Bem-vindo ao BORA AMBULANTES!</h2>
+
+        <nav>
+            <a href="#" class="tab-link" data-tab="home">Início</a>
+            <a href="#" class="tab-link" data-tab="about">Sobre Nós</a>
+            <a href="#" class="tab-link" data-tab="rest-points">Pontos de Descanso</a>
+            <a href="#" class="tab-link" data-tab="food-storage">Armazéns de Comida</a>
+        </nav>
+
+        <div id="home" class="content active">
+            <h3>Página Inicial</h3>
+            <p>Bem-vindo à página inicial.</p>
+        </div>
+
+        <div id="about" class="content">
+            <h3>Sobre Nós</h3>
+            <p>Somos uma empresa dedicada a ajudar vendedores de rua, fornecendo informações essenciais sobre pontos de descanso e armazéns de comida.</p>
+        </div>
+
+        <div id="rest-points" class="content">
+            <h3>Pontos de Descanso</h3>
+            <p>Encontre aqui os pontos de descanso próximos de sua localização:</p>
+            <div id="map"></div>
+        </div>
+
+        <div id="food-storage" class="content">
+            <h3>Armazéns de Comida</h3>
+            <p>Estes são os armazéns de comida mais próximos:</p>
+            <ul>
+                <li>Armazém 1 - Rua X, 123</li>
+                <li>Armazém 2 - Rua Y, 456</li>
+                <li>Armazém 3 - Rua Z, 789</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+
 </body>
 
 </html>
