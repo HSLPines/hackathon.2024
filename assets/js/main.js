@@ -23,3 +23,16 @@ window.onscroll = () => {
 menuIcon.onclick = () => {
     document.getElementById('nav-menu').classList.toggle('active')
 };
+
+function toggleDropdown(element) {
+    const details = element.querySelector('.timeline-details');
+    
+    if (details.style.display === "none") {
+        details.style.display = "block"; // Mostra os detalhes
+        element.style.maxHeight = element.scrollHeight + "px"; // Expande a altura conforme o conteúdo
+    } else {
+        details.style.display = "none"; // Oculta os detalhes
+        element.style.maxHeight = "50px"; // Recolhe o item de volta à altura inicial
+    }
+}
+

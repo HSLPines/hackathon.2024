@@ -17,6 +17,7 @@
     --second-bg-color: #131313;
     --text-color: white;
     --main-color: #0068fe;
+    --second-color: #efff00;
 }
 html{
     font-size: 60%;
@@ -246,23 +247,23 @@ span{
 @keyframes words{
     0%,
     20%{
-        content: "Financiamento";
+        content: "Financiar";
     }
     21%,
     40%{
-        content: "Conectividade";
+        content: "Conectar";
     }
     41%,
     60%{
-        content: "Planejamento";
+        content: "Planejar";
     }
     61%,
     80%{
-        content: "Acolhimento";
+        content: "Acolher";
     }
     81%,
     100%{
-        content: "Educação";
+        content: "Educar";
     }
 }
 
@@ -394,7 +395,7 @@ span{
     width: 13px;
 }
 ::-webkit-scrollbar-thumb{
-    background: var(--main-color);
+    background: var(--second-color);
 }
 ::-webkit-scrollbar-track{
     background: var(--bg-color);
