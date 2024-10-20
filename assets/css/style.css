@@ -393,7 +393,7 @@ h4{
     position: absolute;
     width: 5px;
     height: 100%;
-    background: var(--main-color);
+    background: var(--second-color);
     left: calc(50% - 1px);
 }
 .timeline-item{
@@ -414,9 +414,9 @@ h4{
 .timeline-dot{
     height: 21px;
     width: 21px;
-    background-color: var(--main-color);
-    box-shadow: 0 0 25px var(--main-color),
-                0 0 50px var(--main-color);
+    background-color: var(--second-color);
+    box-shadow: 0 0 25px var(--second-color),
+                0 0 50px var(--second-color);
     position: absolute;
     left: calc(50% - 8px);
     border-radius: 50%;
@@ -430,16 +430,16 @@ h4{
 }
 .timeline-content{
     background-color: var(--bg-color);
-    border: 3px solid var(--main-color);
+    border: 3px solid var(--second-color);
     padding: 30px 50px;
     border-radius: 4rem;
-    box-shadow: 0 0 10px var(--main-color);
+    box-shadow: 0 0 10px var(--second-color);
     cursor: pointer;
     transition: 0.3s ease-in-out;
 }
 .timeline-content:hover{
     transform: scale(1.05);
-    box-shadow: 0 0 25px var(--main-color);
+    box-shadow: 0 0 25px var(--second-color);
 }
 .timeline-content h3{
     font-size: 20px;
