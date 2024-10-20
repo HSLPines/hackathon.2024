@@ -1,30 +1,136 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acolhimento</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Contato e FAQs</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    .faq-section {
+      background-color: #f8f9fa;
+      padding: 50px 0;
+    }
+    .faq-section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .faq-item {
+      margin-bottom: 20px;
+    }
+    .contact-section {
+      padding: 50px 0;
+    }
+    .contact-section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+  </style>
 </head>
 <body>
-        <!----------------------Header----------------------->
-    <header class="header">
-        <a href="#home" class="logo">
-        <span>Bora</span></a> 
 
-        <button type="button" id="btn-menu">
-            <i class='bx bx-menu' id="menu-icon"></i>
-        </button>
+  <!----------------------Header----------------------->
+  <header class="header">
+    <a href="#home" class="logo">
+    <span>Bora</span></a> 
 
-        <nav class="navbar" id="nav-menu">
-            <a  href="index.html" class="active">Home</a>
-            <a  href="education.html">Educação</a>
-            <a  href="faq.html">Acolhimento</a>
-            <a  href="comunity.html">Comunidade</a>
-            <a  href="credits.html">Créditos</a>
-        </nav>
+    <button type="button" id="btn-menu">
+        <i class='bx bx-menu' id="menu-icon"></i>
+    </button>
 
-    </header>
-    
+    <nav class="navbar" id="nav-menu">
+        <a  href="index.html" class="active">Home</a>
+        <a  href="education.html">Educação</a>
+        <a  href="faq.html">Acolhimento</a>
+        <a  href="comunity.html">Comunidade</a>
+        <a  href="credits.html">Créditos</a>
+    </nav>
+
+</header>
+
+  <!-- Seção de FAQs -->
+  <section class="faq-section">
+    <div class="container">
+      <h2>Perguntas Frequentes</h2>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item faq-item">
+          <h2 class="accordion-header" id="faq1Heading">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+              Como faço para entrar em contato?
+            </button>
+          </h2>
+          <div id="faq1" class="accordion-collapse collapse show" aria-labelledby="faq1Heading" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Você pode nos contatar usando o formulário abaixo ou enviar um e-mail para contato@meuportfolio.com.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item faq-item">
+          <h2 class="accordion-header" id="faq2Heading">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+              Qual é o prazo de resposta para solicitações?
+            </button>
+          </h2>
+          <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faq2Heading" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Normalmente respondemos em até 48 horas úteis.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item faq-item">
+          <h2 class="accordion-header" id="faq3Heading">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+              Posso contribuir com algum projeto?
+            </button>
+          </h2>
+          <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faq3Heading" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Sim! Fique à vontade para me enviar uma mensagem pelo formulário abaixo ou entrar em contato por e-mail para discutir oportunidades de colaboração.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Contato -->
+  <section class="contact-section">
+    <div class="container">
+      <h2>Entre em Contato</h2>
+      <form>
+        <div class="mb-3">
+          <label for="name" class="form-label">Nome</label>
+          <input type="text" class="form-control" id="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Mensagem</label>
+          <textarea class="form-control" id="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-light py-4">
+    <div class="container text-center">
+      <p>&copy; 2024 Henrique Lecce. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
