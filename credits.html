@@ -210,26 +210,21 @@
             <tbody>
                 <tr data-tier="bronze">
                     <td>0 - 10</td>
-                    <td>Kits de Segurança, Apoio social/saúde</td>
+                    <td>Cursos de Profissionalização</td>
                     <td>Bronze</td>
                 </tr>
                 <tr data-tier="prata">
                     <td>11 - 50</td>
-                    <td>Cursos de Profissionalização, Programas de fidelidade</td>
+                    <td>Programas de fidelidade B2B</td>
                     <td>Prata</td>
                 </tr>
                 <tr data-tier="ouro">
                     <td>51 - 100</td>
-                    <td>Eventos de bem-estar, Feedbacks regulares, Títulos temporários</td>
+                    <td>Oportunidade de Ambev/Empreendedorismo</td>
                     <td>Ouro</td>
                 </tr>
-                <tr data-tier="diamante">
-                    <td>101+</td>
-                    <td>Parceria oficial com Ambev</td>
-                    <td>Diamante</td>
-                </tr>
                 <tr data-tier="bonus">
-                    <td>1 ano</td>
+                    <td>1 ano de parceria</td>
                     <td>Bônus diversos</td>
                     <td>Bônus</td>
                 </tr>
@@ -238,29 +233,100 @@
     </div>
 </section>
 
+<!----------------------Compras Section----------------------->
+<section class="projects" id="home">
+    <div class="projects-box">
+        <h2 class="heading">Itens para Compras (My Bees)</h2>
+
+        <div id="carouselProjects" class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="assets/img/1.png" alt="">
+                    <div class="projects-item">
+                        <h2>Gatorade</h2>
+                        <p>Isotônico</p>
+                        <p>20 pontos = 1 pack</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/img/2.png" alt="">
+                    <div class="projects-item">
+                        <h2>Guaraná</h2>
+                        <p>Refrigerante</p>
+                        <p>10 pontos = 1 pack</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/img/3.png" alt="">
+                    <div class="projects-item">
+                        <h2>Bohemia</h2>
+                        <p>Cerveja</p>
+                        <p>30 pontos = 1 pack</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/img/5.png" alt="">
+                    <div class="projects-item">
+                        <h2>Sukita</h2>
+                        <p>Refrigerante</p>
+                        <p>15 pontos = 1 pack</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/img/4.png" alt="">
+                    <div class="projects-item">
+                        <h2>Skol</h2>
+                        <p>Cerveja</p>
+                        <p>20 pontos = 1 pack</p>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- Botões de navegação -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselProjects" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselProjects" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden"></span>
+            </button>
+        </div>
+    </div>
+</section>
+
 <!----------------------Script para destacar a Tier----------------------->
 <script>
-    $(document).ready(function() {
-        $('#sold-items').on('input', function() { // Verifica ao digitar no input
-            var soldItems = parseInt($('#sold-items').val()); // Captura o valor do input
-            $('tr').removeClass('highlight-tier'); // Remove destaque anterior
 
-            if (!isNaN(soldItems)) {
-                if (soldItems <= 10) {
-                    $('tr[data-tier="bronze"]').addClass('highlight-tier');
-                } else if (soldItems <= 50) {
-                    $('tr[data-tier="prata"]').addClass('highlight-tier');
-                } else if (soldItems <= 100) {
-                    $('tr[data-tier="ouro"]').addClass('highlight-tier');
-                } else if (soldItems > 100) {
-                    $('tr[data-tier="diamante"]').addClass('highlight-tier');
-                }
-            } else {
-                alert("Por favor, insira um número válido."); // Mensagem de erro se o valor não for um número
-            }
-        });
+    // Função para atualizar o carrossel
+    function updateCarousel() {
+        const itemWidth = items[0].getBoundingClientRect().width;
+        inner.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+    }
+
+    // Botão "Próximo"
+    nextBtn.addEventListener('click', function() {
+        if (currentIndex + itemsPerView < totalItems) {
+            currentIndex += 1;
+        } else {
+            currentIndex = 0; // Volta ao início quando chega ao fim
+        }
+        updateCarousel();
     });
+
+    // Botão "Anterior"
+    prevBtn.addEventListener('click', function() {
+        if (currentIndex > 0) {
+            currentIndex -= 1;
+        } else {
+            currentIndex = totalItems - itemsPerView; // Vai para o final se estiver no início
+        }
+        updateCarousel();
+    });
+
 </script>
+
 
 </body>
 </html>
