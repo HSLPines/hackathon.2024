@@ -13,12 +13,163 @@
             background-color: #fecc37 !important;
             font-weight: bold;
         }
+
+        :root {
+            --main-color: #0068fe;
+            --second-color: #efff00;
+            --bg-color: #080808;
+            --second-bg-color: #131313;
+            --text-color: #fff;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0; /* Remove margem padrão */
+        }
+
+        .input-container {
+            display: flex; /* Coloca os elementos em linha */
+            align-items: center; /* Alinha verticalmente ao centro */
+            justify-content: center; /* Centraliza o conteúdo horizontalmente */
+            flex-direction: column; /* Coloca a coluna em modo coluna */
+            margin-bottom: 20px;
+        }
+
+        .input-container p {
+            margin-right: 10px; /* Adiciona um espaço entre o texto e o input */
+            font-size: 20px;
+            color: var(--main-color);
+            text-align: center; /* Centraliza o texto */
+        }
+
+        #sold-items {
+            padding: 10px;
+            font-size: 16px;
+            width: 80%; /* Largura responsiva */
+            max-width: 200px; /* Largura máxima */
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            position: relative; /* Adiciona posição relativa */
+            z-index: 10; /* Define o z-index para a navbar */
+        }
+
+        .header .logo {
+            font-size: 24px;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .navbar {
+            position: relative; 
+            z-index: 10; 
+        }
+
+        .navbar a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .navbar a.active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .credits-section {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .credits-section h2 {
+            margin-bottom: 20px;
+            font-size: 36px;
+            color: var(--main-color); 
+        }
+
+        .tier-table {
+            width: 90%; /* Largura responsiva */
+            max-width: 800px; /* Largura máxima */
+            margin: 0 auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 15px var(--second-color); /* Glow ao redor da tabela */
+        }
+
+        .tier-table th, .tier-table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+        }
+
+        .tier-table th {
+            background-color: var(--main-color);
+            color: var(--text-color);
+        }
+
+        .tier-table tr:nth-child(even) {
+            background-color: var(--second-bg-color); /* Cor alternada da linha */
+        }
+
+        .tier-table tr:nth-child(odd) {
+            background-color: var(--bg-color); /* Cor alternada da linha */
+        }
+
+        .highlight-tier {
+            background-color: #fecc37 !important;
+            font-weight: bold;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar a {
+                margin: 5px 0; /* Margem vertical para links na navbar */
+            }
+
+            .credits-section h2 {
+                font-size: 28px; /* Ajusta o tamanho da fonte */
+            }
+
+            .tier-table {
+                width: 95%;
+            }
+
+            .input-container {
+                flex-direction: column; /* Muda para coluna em telas pequenas */
+            }
+        }
+
+        @media (max-width: 480px) {
+            #sold-items {
+                width: 100%; /* Largura total em telas pequenas */
+            }
+
+            .input-container p {
+                font-size: 18px; /* Reduz o tamanho do texto */
+            }
+        }
     </style>
 </head>
 <body>
 
 <!----------------------Header----------------------->
-
 <header class="header">
     <a href="index.html" class="logo">
         <span>Bora</span></a> 
@@ -28,12 +179,12 @@
     </button>
 
     <nav class="navbar" id="nav-menu">
+        <a href="https://www.beesbank.com.br/">Bees Bank</a>
         <a href="index.html">Home</a>
         <a href="education.html">Educação</a>
         <a href="kids.html">Acolhimento</a>
         <a href="comunity.html">Comunidade</a>
-        <a href="credits.html" class="active">Créditos</a>
-        <a href="https://www.beesbank.com.br/">Bees Bank</a>
+        <a href="credits.html" class="active">Benefícios</a>
     </nav>
 </header>
 
@@ -87,11 +238,10 @@
     </div>
 </section>
 
-
 <!----------------------Script para destacar a Tier----------------------->
 <script>
     $(document).ready(function() {
-        $('#check-tier').on('click', function() { // Alterado para verificar ao clicar no botão
+        $('#sold-items').on('input', function() { // Verifica ao digitar no input
             var soldItems = parseInt($('#sold-items').val()); // Captura o valor do input
             $('tr').removeClass('highlight-tier'); // Remove destaque anterior
 
@@ -102,7 +252,7 @@
                     $('tr[data-tier="prata"]').addClass('highlight-tier');
                 } else if (soldItems <= 100) {
                     $('tr[data-tier="ouro"]').addClass('highlight-tier');
-                } else {
+                } else if (soldItems > 100) {
                     $('tr[data-tier="diamante"]').addClass('highlight-tier');
                 }
             } else {
@@ -111,132 +261,6 @@
         });
     });
 </script>
-
-<!----------------------Style----------------------->
-<style>
-    :root {
-        --main-color: #0068fe;
-        --second-color: #efff00;
-        --bg-color: #080808;
-        --second-bg-color: #131313;
-        --text-color: #fff;
-    }
-
-    body {
-        font-family: "Poppins", sans-serif;
-        background-color: var(--bg-color);
-        color: var(--text-color);
-    }
-
-    .input-container {
-    display: flex; /* Coloca os elementos em linha */
-    align-items: center; /* Alinha verticalmente ao centro */
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-}
-
-.input-container p {
-    margin-right: 10px; /* Adiciona um espaço entre o texto e o input */
-    font-size: 20px;
-    color: var(--main-color);
-}
-
-#sold-items {
-    padding: 10px;
-    font-size: 16px;
-    width: 200px;
-}
-
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        position: relative; /* Adiciona posição relativa */
-        z-index: 10; /* Define o z-index para a navbar */
-    }
-
-    .header .logo {
-        font-size: 24px;
-        color: var(--text-color);
-        text-decoration: none;
-    }
-
-    .navbar {
-        position: relative; 
-        z-index: 10; 
-    }
-
-    .navbar a {
-        margin: 0 15px;
-        text-decoration: none;
-        color: var(--text-color);
-    }
-
-    .navbar a.active {
-        font-weight: bold;
-        text-decoration: underline;
-    }
-
-    .credits-section {
-        padding: 50px 0;
-        text-align: center;
-    }
-
-    .credits-section h2 {
-        margin-bottom: 20px;
-        font-size: 36px;
-        color: var(--main-color); 
-    }
-
-    .tier-table {
-        width: 80%;
-        margin: 0 auto;
-        border-collapse: collapse;
-        box-shadow: 0 0 15px var(--second-color); /* Glow ao redor da tabela */
-    }
-
-    .tier-table th, .tier-table td {
-        padding: 15px;
-        border: 1px solid #ddd;
-    }
-
-    .tier-table th {
-        background-color: var(--main-color);
-        color: var(--text-color);
-    }
-
-    .tier-table tr:nth-child(even) {
-        background-color: var(--second-bg-color); /* Cor alternada da linha */
-    }
-
-    .tier-table tr:nth-child(odd) {
-        background-color: var(--bg-color); /* Cor alternada da linha */
-    }
-
-    .highlight-tier {
-        background-color: #fecc37 !important;
-        font-weight: bold;
-    }
-
-    #sold-items {
-        margin: 20px 0;
-        padding: 10px;
-        font-size: 16px;
-        width: 200px;
-    }
-    p{
-        color: var(--main-color);
-        size: 20px;
-    }
-    th{
-        font-size: medium;
-    }
-    td{
-        font-size: medium;
-    }
-</style>
 
 </body>
 </html>

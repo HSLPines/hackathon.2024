@@ -18,8 +18,8 @@
     }
 
     iframe {
-      width: 600px;
-      height: 300px;
+      width: 100%; /* Torna a largura responsiva */
+      height: 300px; /* Altura fixa */
       border: 5px solid var(--main-color);
       border-radius: 10%;
       box-shadow: 0 0 10px var(--second-color);
@@ -31,22 +31,21 @@
     }
 
     .map-section {
-      padding-top: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
       padding: 50px;
+      display: flex;
+      flex-direction: column; /* Alterando para coluna para dispositivos menores */
+      align-items: center;
       background-color: var(--second-bg-color);
       padding-bottom: 0;
     }
 
     .map-container {
-      flex: 1;
-      margin-right: 30px;
+      margin-bottom: 30px; /* Espaço entre o mapa e a lista */
     }
 
     .creche-list {
-      flex: 1;
+      width: 100%; /* Largura total */
+      max-width: 600px; /* Largura máxima */
     }
 
     .creche-list h3 {
@@ -118,6 +117,47 @@
       z-index: 1000;
       background-color: var(--bg-color);
     }
+
+    /* Estilos responsivos */
+    @media (max-width: 768px) {
+      iframe {
+        height: 200px; /* Altura reduzida em telas menores */
+      }
+
+      .map-section {
+        padding: 30px; /* Reduz o padding */
+      }
+
+      .creche-list {
+        width: 90%; /* Largura responsiva */
+      }
+
+      h2 {
+        font-size: 2rem; /* Tamanho do título reduzido */
+      }
+
+      h3 {
+        font-size: 1.5rem; /* Tamanho do subtítulo reduzido */
+      }
+    }
+
+    @media (max-width: 480px) {
+      iframe {
+        height: 150px; /* Altura ainda menor para dispositivos muito pequenos */
+      }
+
+      h2 {
+        font-size: 1.5rem; /* Tamanho ainda menor */
+      }
+
+      h3 {
+        font-size: 1.2rem; /* Tamanho ainda menor */
+      }
+
+      li {
+        font-size: small; /* Fonte menor para lista de creches */
+      }
+    }
   </style>
 </head>
 <body>
@@ -125,19 +165,20 @@
   <!----------------------Header-----------------------> 
   <header class="header">
     <a href="index.html" class="logo">
-    <span>Bora</span></a> 
+      <span>Bora</span></a> 
 
     <button type="button" id="btn-menu">
         <i class='bx bx-menu' id="menu-icon"></i>
     </button>
 
     <nav class="navbar" id="nav-menu">
+        <a href="https://www.beesbank.com.br/">Bees Bank</a>
         <a href="index.html" class="active">Home</a>
         <a href="education.html">Educação</a>
         <a href="kids.html">Acolhimento</a>
         <a href="comunity.html">Comunidade</a>
-        <a href="credits.html">Créditos</a>
-        <a href="https://www.beesbank.com.br/">Bees Bank</a>
+        <a href="credits.html">Benefícios</a>
+        
     </nav>
   </header>
 
@@ -148,16 +189,16 @@
   <section class="map-section" id="map">
     <div class="map-container">
       <box class="mapa" id="mapa">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.8023934053676!2d-46.64210918239667!3d-23.575539561960937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce599a1691d50b%3A0xf8175889909b4867!2zUGFyYcOtc28!5e0!3m2!1spt-BR!2sbr!4v1729419543751!5m2!1spt-BR!2sbr" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.8023934053676!2d-46.64210918239667!3d-23.575539561960937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce599a1691d50b%3A0xf8175889909b4867!2zUGFyYcOtc28!5e0!3m2!1spt-BR!2sbr!4v1729419543751!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </box>
-      </div>
+    </div>
 
     <div class="creche-list">
       <h3>Pontos de Creches Próximas à Vila Mariana</h3>
       <ul>
-        <li> * Creche Municipal Maria de Lourdes - Rua Domingos Ferreira, 90 - Vila Mariana, São Paulo - SP, 04074-001</li>
-        <li> * Creche Municipal Tia Elda - Rua Dom Pedro II, 525 - Vila Mariana, São Paulo - SP, 04083-001</li>
-        <li> * Creche Municipal Cônego Vicente D. de Oliveira - Rua José Maria da Silva, 89 - Vila Mariana, São Paulo - SP, 04080-040</li>
+        <li>* Creche Municipal Maria de Lourdes - Rua Domingos Ferreira, 90 - Vila Mariana, São Paulo - SP, 04074-001</li>
+        <li>* Creche Municipal Tia Elda - Rua Dom Pedro II, 525 - Vila Mariana, São Paulo - SP, 04083-001</li>
+        <li>* Creche Municipal Cônego Vicente D. de Oliveira - Rua José Maria da Silva, 89 - Vila Mariana, São Paulo - SP, 04080-040</li>
       </ul>
     </div>
   </section>

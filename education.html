@@ -6,25 +6,123 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Educação</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        :root {
+            --main-color: #0068fe;
+            --second-color: #efff00;
+            --bg-color: #080808;
+            --second-bg-color: #131313;
+            --text-color: #fff;
+        }
+
+        .header {
+            position: relative; /* Mantém a navbar acima do conteúdo */
+            z-index: 10; /* Garante que a navbar esteja acima */
+        }
+
+        .education-section {
+            padding: 10rem 12% 5rem; /* Adiciona padding inferior */
+            background-color: var(--second-bg-color);
+            color: var(--text-color);
+            margin-top: 60px; /* Espaço para a navbar */
+        }
+
+        .education-section h2 {
+            font-size: 4rem;
+            color: #efff00;
+            margin-bottom: 5rem;
+            text-align: center; /* Centraliza o título */
+        }
+
+        .courses {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+        }
+
+        .course-card {
+            background-color: var(--bg-color);
+            border: 2px solid var(--main-color);
+            border-radius: 2rem;
+            width: 28rem;
+            padding: 2rem;
+            box-shadow: 0 0 15px var(--main-color);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            text-align: left;
+        }
+
+        .course-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px var(--main-color);
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 18rem;
+            object-fit: cover;
+            border-radius: 1.5rem;
+        }
+
+        .course-card h3 {
+            font-size: 2.4rem;
+            color: var(--text-color);
+            margin-top: 1.5rem;
+        }
+
+        .course-card p {
+            font-size: 1.6rem;
+            color: var(--text-color);
+            margin: 1rem 0;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .education-section {
+                padding: 5rem 5%; /* Reduz o padding */
+                margin-top: 80px; /* Aumenta o espaço para a navbar */
+            }
+
+            .education-section h2 {
+                font-size: 3rem; /* Reduz o tamanho do título */
+                margin-bottom: 3rem; /* Reduz a margem inferior */
+            }
+
+            .course-card {
+                width: 90%; /* Largura responsiva */
+                max-width: 400px; /* Largura máxima */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .course-card h3 {
+                font-size: 2rem; /* Reduz o tamanho do título em telas pequenas */
+            }
+
+            .course-card p {
+                font-size: 1.4rem; /* Reduz o tamanho do texto em telas pequenas */
+            }
+        }
+    </style>
 </head>
 <body>
 
 <!----------------------Header----------------------->
 <header class="header">
     <a href="index.html" class="logo">
-    <span>Bora</span></a> 
+        <span>Bora</span></a> 
 
     <button type="button" id="btn-menu">
         <i class='bx bx-menu' id="menu-icon"></i>
     </button>
 
     <nav class="navbar" id="nav-menu">
+        <a href="https://www.beesbank.com.br/">Bees Bank</a>
         <a href="index.html" class="active">Home</a>
         <a href="education.html">Educação</a>
         <a href="kids.html">Acolhimento</a>
         <a href="comunity.html">Comunidade</a>
-        <a href="credits.html">Créditos</a>
-        <a href="https://www.beesbank.com.br/">Bees Bank</a>
+        <a href="credits.html">Benefícios</a>
     </nav>
 </header>
 
@@ -66,56 +164,6 @@
         </div>
     </div>
 </section>
-
-<!----------------------Style----------------------->
-<style>
-    .education-section {
-        padding: 10rem 12%;
-        background-color: var(--second-bg-color);
-        color: var(--text-color);
-    }
-    .education-section h2 {
-        font-size: 4rem;
-        color: #efff00;
-        margin-bottom: 5rem;
-    }
-    .courses {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 3rem;
-    }
-    .course-card {
-        background-color: var(--bg-color);
-        border: 2px solid var(--main-color);
-        border-radius: 2rem;
-        width: 28rem;
-        padding: 2rem;
-        box-shadow: 0 0 15px var(--main-color);
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        text-align: left;
-    }
-    .course-card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 25px var(--main-color);
-    }
-    .course-card img {
-        width: 100%;
-        height: 18rem;
-        object-fit: cover;
-        border-radius: 1.5rem;
-    }
-    .course-card h3 {
-        font-size: 2.4rem;
-        color: var(--text-color);
-        margin-top: 1.5rem;
-    }
-    .course-card p {
-        font-size: 1.6rem;
-        color: var(--text-color);
-        margin: 1rem 0;
-    }
-</style>
 
 </body>
 </html>
