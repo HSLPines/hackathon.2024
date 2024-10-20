@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -12,7 +13,7 @@
 
 <!----------------------Header----------------------->
 <header class="header">
-    <a href="#home" class="logo">
+    <a href="index.html" class="logo">
     <span>Bora</span></a> 
 
     <button type="button" id="btn-menu">
@@ -22,48 +23,56 @@
     <nav class="navbar" id="nav-menu">
         <a href="index.html" class="active">Home</a>
         <a href="education.html">Educação</a>
-        <a href="faq.html">Acolhimento</a>
+        <a href="kids.html">Acolhimento</a>
         <a href="comunity.html">Comunidade</a>
         <a href="credits.html">Créditos</a>
+        <a href="https://www.beesbank.com.br/">Bees Bank</a>
     </nav>
 </header>
 
 <!----------------------Main Section----------------------->
 <section class="credits-section">
     <div class="container">
-        <h2>Sistema de Tiers</h2>
-        <p>Digite a quantidade de itens vendidos para verificar sua tier:</p>
-        <input type="number" id="sold-items" placeholder="Quantidade de itens vendidos">
+        <h2>Sistema de <span class="tier-title">Tiers</span></h2>
+        <div class="input-container">
+            <p>Digite a sua quantidade de pontos coletados para verificar sua tier:</p>
+            <input type="number" id="sold-items" placeholder="Quantidade de pontos">
+        </div>
 
         <table class="tier-table">
             <thead>
                 <tr>
-                    <th>Quantidade de Itens Vendidos</th>
+                    <th>Quantidade de Pontos</th>
                     <th>Prêmios Recebidos</th>
                     <th>Tier</th>
                 </tr>
             </thead>
             <tbody>
                 <tr data-tier="bronze">
-                    <td>0 - 100</td>
-                    <td>Desconto de 5%</td>
+                    <td>0 - 10</td>
+                    <td>Kits de Segurança, Apoio social/saúde</td>
                     <td>Bronze</td>
                 </tr>
                 <tr data-tier="prata">
-                    <td>101 - 500</td>
-                    <td>Desconto de 10%</td>
+                    <td>11 - 50</td>
+                    <td>Cursos de Profissionalização, Programas de fidelidade</td>
                     <td>Prata</td>
                 </tr>
                 <tr data-tier="ouro">
-                    <td>501 - 1000</td>
-                    <td>Desconto de 20%</td>
+                    <td>51 - 100</td>
+                    <td>Eventos de bem-estar, Feedbacks regulares, Titúlos temporários</td>
                     <td>Ouro</td>
                 </tr>
                 <tr data-tier="diamante">
-                    <td>1001+</td>
-                    <td>Desconto de 30% e brinde exclusivo</td>
+                    <td>101+</td>
+                    <td>Parceria oficial com Ambev</td>
                     <td>Diamante</td>
                 </tr>
+                <tr data-tier="bonus">
+                    <td>1 ano</td>
+                    <td>Nenhuma tier</td>
+                    <td>Nenhuma tier</td>
+                
             </tbody>
         </table>
     </div>
@@ -77,11 +86,11 @@
             $('tr').removeClass('highlight-tier');
 
             if (!isNaN(soldItems)) {
-                if (soldItems <= 100) {
+                if (soldItems <= 10) {
                     $('tr[data-tier="bronze"]').addClass('highlight-tier');
-                } else if (soldItems <= 500) {
+                } else if (soldItems <= 50) {
                     $('tr[data-tier="prata"]').addClass('highlight-tier');
-                } else if (soldItems <= 1000) {
+                } else if (soldItems <= 100) {
                     $('tr[data-tier="ouro"]').addClass('highlight-tier');
                 } else {
                     $('tr[data-tier="diamante"]').addClass('highlight-tier');
@@ -93,45 +102,127 @@
 
 <!----------------------Style----------------------->
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: (--bg-color) ;
-        color: #333;
+    :root {
+        --main-color: #0068fe;
+        --second-color: #efff00;
+        --bg-color: #080808;
+        --second-bg-color: #131313;
+        --text-color: #fff;
     }
+
+    body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+    }
+
+    .input-container {
+    display: flex; /* Coloca os elementos em linha */
+    align-items: center; /* Alinha verticalmente ao centro */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+.input-container p {
+    margin-right: 10px; /* Adiciona um espaço entre o texto e o input */
+    font-size: 20px;
+    color: var(--main-color);
+}
+
+#sold-items {
+    padding: 10px;
+    font-size: 16px;
+    width: 200px;
+}
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        position: relative; /* Adiciona posição relativa */
+        z-index: 10; /* Define o z-index para a navbar */
+    }
+
+    .header .logo {
+        font-size: 24px;
+        color: var(--text-color);
+        text-decoration: none;
+    }
+
+    .navbar {
+        position: relative; 
+        z-index: 10; 
+    }
+
+    .navbar a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: var(--text-color);
+    }
+
+    .navbar a.active {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
     .credits-section {
         padding: 50px 0;
         text-align: center;
     }
+
     .credits-section h2 {
         margin-bottom: 20px;
         font-size: 36px;
-        color: --main-color;
+        color: var(--main-color); 
     }
+
     .tier-table {
         width: 80%;
         margin: 0 auto;
         border-collapse: collapse;
+        box-shadow: 0 0 15px var(--second-color); /* Glow ao redor da tabela */
     }
+
     .tier-table th, .tier-table td {
         padding: 15px;
         border: 1px solid #ddd;
     }
+
     .tier-table th {
-        background-color: #f8f8f8;
-        color: #333;
+        background-color: var(--main-color);
+        color: var(--text-color);
     }
+
     .tier-table tr:nth-child(even) {
-        background-color: #f2f2f2;
+        background-color: var(--second-bg-color); /* Cor alternada da linha */
     }
+
+    .tier-table tr:nth-child(odd) {
+        background-color: var(--bg-color); /* Cor alternada da linha */
+    }
+
     .highlight-tier {
-        background-color: #ffe082 !important;
+        background-color: #fecc37 !important;
         font-weight: bold;
     }
+
     #sold-items {
         margin: 20px 0;
         padding: 10px;
         font-size: 16px;
         width: 200px;
+    }
+    p{
+        color: var(--main-color);
+        size: 20px;
+    }
+    th{
+        font-size: medium;
+    }
+    td{
+        font-size: medium;
     }
 </style>
 

@@ -36,3 +36,37 @@ function toggleDropdown(element) {
     }
 }
 
+const nextBtn = document.querySelector('.carousel-control-next');
+const prevBtn = document.querySelector('.carousel-control-prev');
+const inner = document.querySelector('.carousel-inner');
+const items = document.querySelectorAll('.carousel-item');
+let currentIndex = 0;
+const itemsPerView = 3; // Exibimos 3 itens de cada vez
+const totalItems = items.length;
+
+// Função para atualizar o carrossel
+function updateCarousel() {
+    const itemWidth = items[0].getBoundingClientRect().width;
+    inner.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+}
+
+// Botão "Próximo"
+nextBtn.addEventListener('click', function() {
+    if (currentIndex + itemsPerView < totalItems) {
+        currentIndex += 1;
+    } else {
+        currentIndex = 0; // Volta ao início quando chega ao fim
+    }
+    updateCarousel();
+});
+
+// Botão "Anterior"
+prevBtn.addEventListener('click', function() {
+    if (currentIndex > 0) {
+        currentIndex -= 1;
+    } else {
+        currentIndex = totalItems - itemsPerView; // Vai para o final se estiver no início
+    }
+    updateCarousel();
+});
+
