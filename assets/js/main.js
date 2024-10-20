@@ -1,40 +1,38 @@
-
 let menuIcon = document.querySelector('#btn-menu');
 let navbar = document.querySelector('.navbar');
-let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('header nav a');
 
-window.onscroll = () => {
-    sections.forEach(sec => {  
-        let top = window.scrollY;
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
+// Função para ativar o link correspondente à página atual
+function activateNavLink() {
+    // Obtém o caminho da URL e isola o nome do arquivo da página atual
+    let currentPage = window.location.pathname.split("/").pop();
 
-        if (top >= offset && top < offset + height){
-            navLinks.forEach(links => {
-                links.classList.remove('active');
-                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
-            });
+    // Se não houver um nome de arquivo, define como 'index.html'
+    if (currentPage === '') {
+        currentPage = 'index.html';
+    }
+
+    // Percorre todos os links do menu de navegação
+    navLinks.forEach(link => {
+        let href = link.getAttribute('href');
+
+        // Remove a classe 'active' de todos os links
+        link.classList.remove('active');
+
+        // Verifica se o link atual corresponde ao arquivo aberto
+        if (href === currentPage) {
+            link.classList.add('active');
         }
     });
-};
-
-menuIcon.onclick = () => {
-    document.getElementById('nav-menu').classList.toggle('active')
-};
-
-function toggleDropdown(element) {
-    const details = element.querySelector('.timeline-details');
-    
-    if (details.style.display === "none") {
-        details.style.display = "block"; // Mostra os detalhes
-        element.style.maxHeight = element.scrollHeight + "px"; // Expande a altura conforme o conteúdo
-    } else {
-        details.style.display = "none"; // Oculta os detalhes
-        element.style.maxHeight = "50px"; // Recolhe o item de volta à altura inicial
-    }
 }
+
+// Chama a função ao carregar a página
+window.onload = activateNavLink;
+
+// Função para abrir/fechar o menu de navegação ao clicar no ícone
+menuIcon.onclick = () => {
+    document.getElementById('nav-menu').classList.toggle('active');
+};
 
 const nextBtn = document.querySelector('.carousel-control-next');
 const prevBtn = document.querySelector('.carousel-control-prev');

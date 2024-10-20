@@ -18,10 +18,11 @@
     }
 
     iframe {
-      width: 300px;
+      width: 600px;
       height: 300px;
       border: 5px solid var(--main-color);
-      border-radius: 20%;
+      border-radius: 10%;
+      box-shadow: 0 0 10px var(--second-color);
     }
 
     .map-section {
@@ -88,6 +89,7 @@
 
     h3 {
       color: var(--second-color);
+      text-decoration-color: var(--second-color);
     }
 
     .header {
@@ -126,31 +128,20 @@
   </div>
   <section class="map-section" id="map">
     <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4348.69065850276!2d-46.64406461044592!3d-23.57568345539425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce599a1691d50b%3A0xf8175889909b4867!2zUGFyYcOtc28!5e0!3m2!1spt-BR!2sbr!4v1729405043444!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
+      <box class="mapa" id="mapa">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.8023934053676!2d-46.64210918239667!3d-23.575539561960937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce599a1691d50b%3A0xf8175889909b4867!2zUGFyYcOtc28!5e0!3m2!1spt-BR!2sbr!4v1729419543751!5m2!1spt-BR!2sbr" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </box>
+      </div>
 
     <div class="creche-list">
-      <h3>Creches Públicas Próximas à Vila Mariana</h3>
+      <h3>Pontos de Creches Próximas à Vila Mariana</h3>
       <ul>
-        <li>Creche Municipal Maria de Lourdes - Rua Domingos Ferreira, 90 - Vila Mariana, São Paulo - SP, 04074-001</li>
-        <li>Creche Municipal Tia Elda - Rua Dom Pedro II, 525 - Vila Mariana, São Paulo - SP, 04083-001</li>
-        <li>Creche Municipal Cônego Vicente D. de Oliveira - Rua José Maria da Silva, 89 - Vila Mariana, São Paulo - SP, 04080-040</li>
+        <li>* Creche Municipal Maria de Lourdes - Rua Domingos Ferreira, 90 - Vila Mariana, São Paulo - SP, 04074-001</li>
+        <li>* Creche Municipal Tia Elda - Rua Dom Pedro II, 525 - Vila Mariana, São Paulo - SP, 04083-001</li>
+        <li>* Creche Municipal Cônego Vicente D. de Oliveira - Rua José Maria da Silva, 89 - Vila Mariana, São Paulo - SP, 04080-040</li>
       </ul>
     </div>
   </section>
-
-  <!----------------------Footer-----------------------> 
-  <footer class="footer">
-    <div class="container text-center">
-      <p class="copyright">
-        &copy; 2024 Bora Ambulantes | Todos os direitos reservados.
-    </p>
-    <!----------------------DEV----------------------->
-    <p class="copyright">
-        Desenvolvido por <a href="https://github.com/HSLPines" target="_blank"><span> Henrique Lecce</span></a>
-    </p>
-    </div>
-  </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

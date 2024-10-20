@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,24 +7,32 @@
     <title>Créditos</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        /* Seus estilos aqui */
+        .highlight-tier {
+            background-color: #fecc37 !important;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
 <!----------------------Header----------------------->
+
 <header class="header">
     <a href="index.html" class="logo">
-    <span>Bora</span></a> 
+        <span>Bora</span></a> 
 
     <button type="button" id="btn-menu">
         <i class='bx bx-menu' id="menu-icon"></i>
     </button>
 
     <nav class="navbar" id="nav-menu">
-        <a href="index.html" class="active">Home</a>
+        <a href="index.html">Home</a>
         <a href="education.html">Educação</a>
         <a href="kids.html">Acolhimento</a>
         <a href="comunity.html">Comunidade</a>
-        <a href="credits.html">Créditos</a>
+        <a href="credits.html" class="active">Créditos</a>
         <a href="https://www.beesbank.com.br/">Bees Bank</a>
     </nav>
 </header>
@@ -37,7 +44,9 @@
         <div class="input-container">
             <p>Digite a sua quantidade de pontos coletados para verificar sua tier:</p>
             <input type="number" id="sold-items" placeholder="Quantidade de pontos">
+            
         </div>
+        
 
         <table class="tier-table">
             <thead>
@@ -60,7 +69,7 @@
                 </tr>
                 <tr data-tier="ouro">
                     <td>51 - 100</td>
-                    <td>Eventos de bem-estar, Feedbacks regulares, Titúlos temporários</td>
+                    <td>Eventos de bem-estar, Feedbacks regulares, Títulos temporários</td>
                     <td>Ouro</td>
                 </tr>
                 <tr data-tier="diamante">
@@ -70,20 +79,21 @@
                 </tr>
                 <tr data-tier="bonus">
                     <td>1 ano</td>
-                    <td>Nenhuma tier</td>
-                    <td>Nenhuma tier</td>
-                
+                    <td>Bônus diversos</td>
+                    <td>Bônus</td>
+                </tr>
             </tbody>
         </table>
     </div>
 </section>
 
+
 <!----------------------Script para destacar a Tier----------------------->
 <script>
     $(document).ready(function() {
-        $('#sold-items').on('input', function() {
-            var soldItems = parseInt($(this).val());
-            $('tr').removeClass('highlight-tier');
+        $('#check-tier').on('click', function() { // Alterado para verificar ao clicar no botão
+            var soldItems = parseInt($('#sold-items').val()); // Captura o valor do input
+            $('tr').removeClass('highlight-tier'); // Remove destaque anterior
 
             if (!isNaN(soldItems)) {
                 if (soldItems <= 10) {
@@ -95,6 +105,8 @@
                 } else {
                     $('tr[data-tier="diamante"]').addClass('highlight-tier');
                 }
+            } else {
+                alert("Por favor, insira um número válido."); // Mensagem de erro se o valor não for um número
             }
         });
     });

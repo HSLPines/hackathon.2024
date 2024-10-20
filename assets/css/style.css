@@ -10,7 +10,7 @@
     border: none;
     outline: none;
     scroll-behavior: smooth;
-    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
  }
 :root{
     --bg-color: #080808;
@@ -595,6 +595,14 @@ h4{
 
 .projects-item p {
     font-size: 1.2rem;
+}
+
+.projects-box h4 {
+    font-size: medium;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    align-items: center;
+    justify-content: center;
 }
 
 iframe {
